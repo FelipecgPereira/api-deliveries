@@ -26,11 +26,11 @@ const findAllDeliveriesController = new FindAllDeliveriesController();
 const updateEndDateController = new UpdateEndDateController();
 
 
-routes.post('/client/authenticate/',authenticateClientController.handle)
+routes.post('/authenticate/client/',authenticateClientController.handle)
 routes.post('/client/',createClientController.handle)
 routes.post('/deliveryman/',createDeliverymanController.handle)
 routes.get('/deliveryman/available',ensureAuthenticateDeliveryman,findAllAvailableController.handle)
-routes.post('/deliveryman/authenticate',authenticateDeliverymanController.handle)
+routes.post('/authenticate/deliveryman/',authenticateDeliverymanController.handle)
 routes.post('/delivery/',ensureAuthenticateClients,createDeliveryController.handle)
 routes.put('/delivery/updateDeliveryman/:id',ensureAuthenticateDeliveryman,updateDeliverymanController.handle)
 routes.get('/client/deliveries',ensureAuthenticateClients,findDeliveriesController.handle)
